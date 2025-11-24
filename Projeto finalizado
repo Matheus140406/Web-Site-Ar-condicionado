@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ronaldo Refrigeração — Instalação e Manutenção de Ar-Condicionado</title>
+
+  <!-- SEO metas -->
+  <meta name="description" content="Ronaldo Refrigeração — Instalação, manutenção, higienização e reparos de ar-condicionado com técnicos certificados. Orçamento rápido via WhatsApp." />
+  <meta name="keywords" content="ar-condicionado, instalação, manutenção, higienização, recarga de gás, Ronaldo Refrigeração" />
+  <link rel="canonical" href="https://www.seusite.com.br/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="business.business" />
+  <meta property="og:title" content="Ronaldo Refrigeração — Instalação e Manutenção" />
+  <meta property="og:description" content="Instalação, manutenção, higienização e recarga de gás. Atendimento profissional e rápido." />
+  <meta property="og:url" content="https://www.seusite.com.br/" />
+  <meta property="og:site_name" content="Ronaldo Refrigeração" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <style>
+    :root {
+      --accent: #3B82F6;
+      --accent-boost: #3dd5f3;
+      --bg: #0f172a;
+      --surface: #1a2333;
+      --text: #e6eef8;
+      --muted: #9fb3c8;
+      --radius: 14px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .service-card {
+      background: var(--surface);
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+
+    /* Abrir texto oculto */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+    }
+
+    .open .accordion-content {
+      max-height: 300px;
+    }
+
+    /* Form */
+    .form-field {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    /* Tornar opções do select escuras */
+    select.form-field option {
+      color: #111 !important;
+      background: #fff !important;
+    }
+
+    .wa-fab {
+      position: fixed;
+      right: 15px;
+      bottom: 15px;
+      background: #25D366;
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="py-4 px-6 border-b border-white/10 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Ronaldo Refrigeração</h1>
+    <nav class="flex gap-4">
+      <a href="#servicos" class="hover:text-blue-400">Serviços</a>
+      <a href="#depoimentos" class="hover:text-blue-400">Depoimentos</a>
+      <a href="#contato" class="hover:text-blue-400">Contato</a>
+      <a href="https://www.instagram.com/ronarefrigeracao" target="_blank" class="hover:text-pink-400 flex items-center gap-1">
+        <i data-feather="instagram"></i> Instagram
+      </a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-24 text-center">
+      <h2 class="text-4xl font-bold mb-4">Climatização • Refrigeração • Tecnologia</h2>
+      <p class="text-lg text-blue-200 max-w-2xl mx-auto">Serviço profissional, moderno e eficiente.</p>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="px-6 py-16 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold mb-10 text-center">Nossos Serviços</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="service-card cursor-pointer">
+        <h3 class="text-xl font-semibold mb-1">Instalação</h3>
+        <p class="text-blue-300">Split e Inverter</p>
+        <div class="accordion-content mt-3 text-blue-100">Instalação profissional com nivelamento, teste de vazão e garantia.</div>
+      </div>
+
+      <div class="service-card cursor-pointer">
+        <h3 class="text-xl font-semibold mb-1">Manutenção</h3>
+        <p class="text-blue-300">Preventiva</p>
+        <div class="accordion-content mt-3 text-blue-100">Aumente a vida útil e reduza o consumo de energia.</div>
+      </div>
+
+      <div class="service-card cursor-pointer">
+        <h3 class="text-xl font-semibold mb-1">Higienização</h3>
+        <p class="text-blue-300">Limpeza técnica</p>
+        <div class="accordion-content mt-3 text-blue-100">Remoção completa de sujeira, odores e micro-organismos.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <!--DEPOIMENTOS DE PESSOAS QUE GOSTARAM DO SERVIÇO-->>
+  <section id="depoimentos" class="bg-slate-800/40 py-16 px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">Depoimentos</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="service-card">"Serviço impecável! Meu ar ficou novo!" — <b>Matheus Carvalho.</b></div>
+      <div class="service-card">"Atendimento rápido e muito educado." — <b>Ellen.</b></div>
+      <div class="service-card">"Melhor manutenção que já fiz." — <b>Rafael</b></div>
+      <div class="service-card">"Super recomendo, honesto e Profissional." — <b>Carla P.</b></div>
+      <div class="service-card">"Recomendo muito, super confiavel!" — <b>Leonardo Nunes</b></div>
+      <div class="service-card">"Explica tudo certinho. Nota 10!" — <b>Ana Clara</b></div>
+      <div class="service-card">"Tecnico tranquilo e muito gentil" — <b>Marcos</b></div>
+    </div>
+  </section>
+
+  <!-- CONTATO / ORÇAMENTO -->
+   <!--Serve para que as pessoas entrem em contato para solicitar orçamentos-->>
+  <section id="contato" class="px-6 py-16 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8">Solicitar Orçamento</h2>
+
+    <form class="grid gap-4">
+      <input class="form-field" placeholder="Seu nome" />
+      <input class="form-field" placeholder="Telefone" />
+
+      <select class="form-field">
+        <option value="">Selecione o serviço que deseja</option>
+        <option>Instalação</option>
+        <option>Manutenção</option>
+        <option>Higienização</option>
+        <option>Reparo</option>
+      </select>
+
+      <textarea class="form-field" rows="4" placeholder="Descreva sua necessidade"></textarea>
+
+      <button class="py-3 bg-blue-600 hover:bg-blue-500 rounded-lg font-semibold">Enviar</button>
+    </form>
+  </section>
+
+  <a class="wa-fab" href="https://wa.me/556192983613" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30" />
+  </a>
+
+<script>
+  feather.replace();
+
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('open'));
+  });
+</script>
+
+<script>
+  // Snowfall effect
+  const snowContainer = document.createElement('div');
+  snowContainer.style.position = 'fixed';
+  snowContainer.style.top = '0';
+  snowContainer.style.left = '0';
+  snowContainer.style.width = '100%';
+  snowContainer.style.height = '100%';
+  snowContainer.style.pointerEvents = 'none';
+  snowContainer.style.overflow = 'hidden';
+  document.body.appendChild(snowContainer);
+
+  function createSnowflake() {
+    const flake = document.createElement('div');
+    flake.textContent = '❄';
+    flake.style.position = 'absolute';
+    flake.style.top = '-20px';
+    flake.style.left = Math.random() * window.innerWidth + 'px';
+    flake.style.fontSize = 12,5 + Math.random() * 20 + 'px';
+    flake.style.opacity = Math.random();
+    flake.style.animation = `fall ${5 + Math.random() * 5}s linear`;
+    snowContainer.appendChild(flake);
+    setTimeout(() => flake.remove(), 10000);
+  }
+
+  setInterval(createSnowflake, 150);
+</script>
+
+<style>
+@keyframes fall {
+  to { transform: translateY(110vh); opacity: 0; }
+}
+</style>
+
+</body>
+</html>
