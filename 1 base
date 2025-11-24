@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ronaldo Refrigeração — Instalação e Manutenção</title>
+  <meta name="description" content="Ronaldo Refrigeração — Instalação, manutenção, higienização e reparos de ar-condicionado. Orçamento rápido via WhatsApp." />
+  <meta name="keywords" content="ar-condicionado, instalação, manutenção, higienização, recarga de gás, Ronaldo Refrigeração" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    /* ====== VARS ====== */
+    :root{
+      --bg:#071026;
+      --surface:#081227;
+      --card:#0b1630;
+      --muted:rgba(230,238,248,0.6);
+      --text:#e6eef8;
+      --accent:#39a7ff;
+      --accent-2:#06d5c4;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --shadow: 0 12px 30px rgba(2,6,23,0.6);
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#041126);color:var(--text);font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:24px}
+    header.site-header{position:sticky;top:0;z-index:80;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.02)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-box{width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--accent),var(--accent-2));display:inline-flex;align-items:center;justify-content:center;color:#021028;font-weight:700;box-shadow:0 6px 18px rgba(3,12,35,0.6)}
+    .brand-title{line-height:1}
+    .muted{color:var(--muted);font-size:13px}
+
+    /* ====== HERO CAROUSEL ====== */
+    .hero{position:relative;overflow:hidden;padding:48px 0}
+    .hero-inner{display:flex;align-items:center;gap:24px}
+    .hero-left{flex:1;z-index:10}
+    .hero-title{font-size:2.2rem;margin:0 0 10px 0;font-weight:800;letter-spacing:-0.02em}
+    .hero-sub{margin:0 0 18px 0;color:var(--muted);max-width:52ch}
+    .hero-cta{display:flex;gap:12px;margin-top:10px}
+    .btn{padding:12px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021028}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)}
+    /* carousel visuals (right) */
+    .hero-right{width:520px;max-width:46%;min-width:320px;align-self:stretch;display:flex;flex-direction:column;gap:14px}
+    .carousel{position:relative;overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));height:320px;display:flex;align-items:center;justify-content:center}
+    .slides{display:flex;height:100%;transition:transform .7s cubic-bezier(.22,.9,.25,1)}
+    .slide{min-width:100%;padding:26px;display:flex;gap:18px;align-items:center}
+    .slide-visual{width:140px;height:140px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .slide h4{margin:0;font-size:1.05rem}
+    .slide p{margin:6px 0 0 0;color:var(--muted);font-size:14px}
+    .carousel-controls{position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:center;gap:10px;z-index:30}
+    .dot{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,0.08);cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
+    .dot.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 6px 18px rgba(3,12,35,0.6)}
+
+    /* animations */
+    .fade-in{opacity:0;transform:translateY(8px);animation:fadeUp .7s forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+    .slide-visual svg{width:80px;height:80px;opacity:0.96}
+
+    /* ====== SERVICES (cards no images) ====== */
+    section.services{padding:44px 0}
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .service-card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);transition:transform .25s,box-shadow .25s}
+    .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+    .service-title{font-weight:700;margin-bottom:6px}
+    .service-desc{color:var(--muted);font-size:14px}
+
+    /* ====== TESTIMONIALS (10) ====== */
+    section.testimonials{padding:40px 0}
+    .t-track{display:flex;gap:12px;overflow:auto;padding-bottom:6px}
+    .t-card{min-width:260px;background:linear-gradient(180deg,rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .avatar{width:56px;height:56px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#021028}
+    .t-name{font-weight:700;margin-top:8px}
+    .t-text{color:var(--muted);margin-top:8px;font-size:14px}
+
+    /* ====== CONTACT FORM (improved) ====== */
+    section.contact{padding:44px 0}
+    .contact-box{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+    .form-field{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+    .form-row{display:flex;gap:10px}
+    .summary{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;color:var(--muted);font-size:14px}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* WhatsApp FAB */
+    .wa-fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#021028;box-shadow:0 12px 30px rgba(3,12,35,0.6);z-index:200}
+    .wa-fab svg{width:26px;height:26px}
+
+    /* snow (flurry) */
+    .snow-holder{pointer-events:none;position:fixed;inset:0;z-index:50;overflow:hidden}
+    .flake{position:absolute;top:-5%;color:rgba(255,255,255,0.92);font-size:12px;opacity:0.9;filter:drop-shadow(0 6px 20px rgba(0,0,0,0.6))}
+
+    /* responsive */
+    @media (max-width:1100px){.services-grid{grid-template-columns:repeat(2,1fr)}.hero-right{display:none}.contact-box{grid-template-columns:1fr}}
+    @media (max-width:640px){.services-grid{grid-template-columns:1fr}.t-card{min-width:220px}.hero-title{font-size:1.4rem}}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo-box" aria-hidden="true">RR</div>
+        <div class="brand-title">
+          <div style="font-weight:800">Ronaldo Refrigeração</div>
+          <div class="muted">Instalação • Manutenção • Higienização</div>
+        </div>
+      </div>
+
+      <nav style="display:flex;align-items:center;gap:12px">
+        <a class="muted" href="#servicos">Serviços</a>
+        <a class="muted" href="#depoimentos">Depoimentos</a>
+        <a class="muted" href="#contato">Contato</a>
+        <!-- theme switch (simple) -->
+        <button id="themeBtn" class="btn btn-ghost" aria-label="Alternar tema" style="padding:8px;border-radius:10px">Tema</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Apresentação">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <h1 class="hero-title fade-in">Instalação, Manutenção e Higienização de Ar-Condicionado</h1>
+        <p class="hero-sub fade-in" style="animation-delay:.08s">Soluções profissionais em climatização, refrigeração e tecnologia HVAC — atendimento rápido, técnicos certificados e garantia de serviço.</p>
+        <div class="hero-cta fade-in" style="animation-delay:.16s">
+          <button class="btn btn-primary" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar Orçamento</button>
+          <a class="btn btn-ghost" href="tel:+556192983613">Ligue: +55 61 9298-3613</a>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <div class="carousel" id="carousel">
+          <div class="slides" id="slides">
+            <!-- Slide 1: Climatização -->
+            <div class="slide" role="group" aria-label="Climatização">
+              <div style="flex:1">
+                <div class="slide-visual" aria-hidden="true">
+                  <!-- SVG: climate icon -->
+                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M32 8v48"/><path d="M8 32h48"/></g></svg>
+                </div>
+              </div>
+              <div style="flex:1.4">
+                <h4>Climatização Residencial e Comercial</h4>
+                <p>Projetos e instalação com foco em conforto térmico e eficiência energética.</p>
+              </div>
+            </div>
+
+            <!-- Slide 2: Refrigeração -->
+            <div class="slide" role="group" aria-label="Refrigeração">
+              <div style="flex:1">
+                <div class="slide-visual" aria-hidden="true">
+                  <!-- SVG: refrigeracao icon -->
+                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="white" stroke-width="1.6"><path d="M16 48h32M24 16l8 16 8-16"/></g></svg>
+                </div>
+              </div>
+              <div style="flex:1.4">
+                <h4>Refrigeração Técnica</h4>
+                <p>Manutenção e reparos com testes de estanqueidade e recarga homologada.</p>
+              </div>
+            </div>
+
+            <!-- Slide 3: Tecnologia -->
+            <div class="slide" role="group" aria-label="Tecnologia HVAC">
+              <div style="flex:1">
+                <div class="slide-visual" aria-hidden="true">
+                  <!-- SVG: technology icon -->
+                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="white" stroke-width="1.6"><circle cx="32" cy="32" r="10"/><path d="M32 6v8M32 50v8M6 32h8M50 32h8"/></g></svg>
+                </div>
+              </div>
+              <div style="flex:1.4">
+                <h4>Tecnologia & Automação</h4>
+                <p>Monitoramento, sensores e ajustes para operação eficiente do seu sistema.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-controls" aria-hidden="false" id="carouselDots"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="servicos" class="services container" aria-labelledby="servicos-title">
+    <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:12px">
+      <h2 id="servicos-title" style="margin:0;font-size:1.25rem">Nossos Serviços</h2>
+      <div class="small muted">Sem imagens externas — foco no conteúdo técnico.</div>
+    </div>
+
+    <div class="services-grid" role="list">
+      <div class="service-card" role="listitem">
+        <div class="service-title">Instalação Profissional</div>
+        <div class="service-desc">Instalação com vácuo, nivelamento, proteção elétrica e testes finais conforme normas.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-title">Manutenção Preventiva</div>
+        <div class="service-desc">Limpeza de serpentinas, troca de filtros, verificação elétrica e relatório técnico.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-title">Higienização Técnica</div>
+        <div class="service-desc">Remoção de fungos e odores, desinfecção e teste de qualidade do ar.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-title">Reparos & Carga de Gás</div>
+        <div class="service-desc">Diagnóstico de vazamentos, substituição de componentes e recarga homologada.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="depoimentos" class="testimonials container" aria-label="Depoimentos">
+    <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:12px">
+      <h2 style="margin:0;font-size:1.25rem">O que nossos clientes dizem</h2>
+      <div class="muted small">10 depoimentos — 5 masculinos, 5 femininos</div>
+    </div>
+
+    <div class="t-track" id="tTrack" tabindex="0" aria-live="polite">
+      <!-- Masculinos -->
+      <div class="t-card" role="article">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">L</div>
+          <div>
+            <div class="t-name">Lucas Almeida</div>
+            <div class="small muted">Brasília</div>
+          </div>
+        </div>
+        <div class="t-text">Instalação perfeita, equipe rápida e limpa. Recomendo.</div>
+      </div>
+
+      <div class="t-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">R</div>
+          <div>
+            <div class="t-name">Rafael Costa</div>
+            <div class="small muted">Taguatinga</div>
+          </div>
+        </div>
+        <div class="t-text">Resolveram um vazamento que ninguém achava. Profissionais de verdade.</div>
+      </div>
+
+      <div class="t-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">A</div>
+          <div>
+            <div class="t-name">André Gomes</div>
+            <div class="small muted">Sobradinho</div>
+          </div>
+        </div>
+        <div class="t-text">Ótimo atendimento e preço justo.</div>
+      </div>
+
+      <div class="t-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">B</div>
+          <div>
+            <div class="t-name">Bruno Silva</div>
+            <div class="small muted">Recanto</div>
+          </div>
+        </div>
+        <div class="t-text">Chegaram no horário e fizeram um trabalho muito organizado.</div>
+      </div>
+
+      <div class="t-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">D</div>
+          <div>
+            <div class="t-name">Diego Pereira</div>
+            <div class="small muted">Cruzeiro</div>
+          </div>
+        </div>
+        <div class="t-text">Transparência total no orçamento e serviço eficiente.</div>
+      </div>
+
+      <!-- Femininos -->
+      <div class="t-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">A</div>
+          <div>
+            <div class="t-name">Ana Paula</div>
+            <div class="small muted">Lago Norte</div>
+          </div>
+        </div>
+        <div class="t-text">Equipe gentil e cuidadosa. Recomendo para quem tem criança em casa.</div>
+      </div>
+
+      <div class="t-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">C</div>
+          <div>
+            <div class="t-name">Carla Dias</div>
+            <div class="small muted">Riacho Fundo</div>
+          </div>
+        </div>
+        <div class="t-text">Excelente higienização — o ar ficou muito melhor.</div>
+      </div>
+
+      <div class="t-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">F</div>
+          <div>
+            <div class="t-name">Fernanda Rocha</div>
+            <div class="small muted">Águas Claras</div>
+          </div>
+        </div>
+        <div class="t-text">Profissionais especialistas. Voltaria a contratar sem dúvida.</div>
+      </div>
+
+      <div class="t-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">J</div>
+          <div>
+            <div class="t-name">Juliana Lima</div>
+            <div class="small muted">Lago Sul</div>
+          </div>
+        </div>
+        <div class="t-text">Explicaram tudo com calma e resolveram o problema rapidamente.</div>
+      </div>
+
+      <div class="t-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">P</div>
+          <div>
+            <div class="t-name">Patrícia Gomes</div>
+            <div class="small muted">Asa Norte</div>
+          </div>
+        </div>
+        <div class="t-text">Serviço de alta qualidade e ótimo atendimento.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contato" class="contact container" aria-label="Contato">
+    <h2 style="margin-bottom:12px">Solicite Seu Orçamento</h2>
+    <div class="contact-box" role="form" aria-labelledby="contato">
+      <form id="quoteForm" autocomplete="off" onsubmit="return handleSubmit(event)">
+        <label class="small">Seu nome</label>
+        <input class="form-field" name="name" id="name" required placeholder="Nome completo" />
+
+        <label class="small">Telefone / WhatsApp</label>
+        <input class="form-field" name="phone" id="phone" required placeholder="+55 61 9xxxx-xxxx" />
+
+        <div style="display:flex;gap:10px">
+          <div style="flex:1">
+            <label class="small">Serviço</label>
+            <select class="form-field" name="service" id="service">
+              <option>Instalação</option>
+              <option>Manutenção Preventiva</option>
+              <option>Higienização</option>
+              <option>Reparo / Carga de Gás</option>
+            </select>
+          </div>
+          <div style="flex:1">
+            <label class="small">Melhor dia/horário</label>
+            <input class="form-field" name="when" id="when" placeholder="Ex: Seg a sexta, manhã" />
+          </div>
+        </div>
+
+        <label class="small">Descrição do serviço (detalhes, modelo do aparelho, local)</label>
+        <textarea class="form-field" name="details" id="details" rows="4" placeholder="Descreva brevemente o problema ou serviço"></textarea>
+
+        <!-- optional small file input (disabled by default, uncomment at server side) -->
+        <!--
+        <label class="small">Anexar foto (opcional)</label>
+        <input class="form-field" type="file" name="photo" accept="image/*" />
+        -->
+
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <button class="btn btn-primary" type="submit">Enviar Solicitação</button>
+          <button class="btn btn-ghost" type="reset">Limpar</button>
+          <a class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)" href="https://wa.me/556192983613?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento" target="_blank" rel="noopener">Abrir WhatsApp</a>
+        </div>
+      </form>
+
+      <aside class="summary" aria-hidden="false">
+        <strong>Resumo rápido</strong>
+        <div id="summaryText" style="margin-top:8px;color:var(--muted)">Preencha o formulário e envie — responderemos em até 24h. Você pode enviar fotos pelo WhatsApp para diagnóstico mais preciso.</div>
+        <div style="margin-top:12px">
+          <div class="small">Atendimento: Seg–Sex 8:00–18:00</div>
+          <div class="small" style="margin-top:6px">WhatsApp: <a href="https://wa.me/556192983613" style="color:var(--accent)">+55 61 9298-3613</a></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:26px 0;background:transparent">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="logo-box" aria-hidden="true">RR</div>
+        <div>
+          <div style="font-weight:700">Ronaldo Refrigeração</div>
+          <div class="small muted">© <span id="year"></span> Todos os direitos reservados.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="muted" href="https://www.instagram.com/ronaldo_souuzaa" target="_blank" rel="noopener">Instagram</a>
+        <a class="muted" href="tel:+556192983613">+55 61 9298-3613</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB (official icon inline) -->
+  <a class="wa-fab" href="https://wa.me/556192983613?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M21 11.5a9.5 9.5 0 1 0-2.6 6.1L22 22l-3.9-1.6A9.5 9.5 0 0 0 21 11.5z" fill="#ffffff" opacity="0.06"/>
+      <path d="M16.5 13.7c-.3-.1-1.7-.8-2-1-.5-.2-.8-.1-.9.1-.3.3-1 1-1.2 1.2-.2.2-.4.3-.7.1-.3-.1-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.5-.2-.3 0-.5.1-.6.2-.2.3-.4.5-.6.2-.2.2-.3.3-.5.1-.2.06-.36-.04-.5-.1-.14-.8-1.9-1.1-2.6-.3-.68-.6-.6-.8-.6-.2-.01-.4-.01-.66-.01s-.57.08-.87.36c-.3.28-1.14 1.12-1.14 2.72 0 1.6 1.17 3.14 1.33 3.36.16.22 2.3 3.56 5.58 4.85 3.28 1.28 3.28.86 3.86.81.6-.05 1.9-.76 2.15-1.49.27-.73.27-1.36.19-1.49-.08-.13-.27-.22-.58-.33z" fill="#ffffff"/>
+    </svg>
+  </a>
+
+  <!-- snow holder -->
+  <div class="snow-holder" id="snowHolder" aria-hidden="true"></div>
+
+  <script>
+    // ====== year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== HERO CAROUSEL logic (3 slides)
+    (function(){
+      const slides = document.getElementById('slides');
+      const dots = document.getElementById('carouselDots');
+      const total = slides.children.length;
+      let index = 0;
+      // create dots
+      for(let i=0;i<total;i++){
+        const d = document.createElement('button');
+        d.className = 'dot' + (i===0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Ir para slide ' + (i+1));
+        d.addEventListener('click', ()=> show(i));
+        dots.appendChild(d);
+      }
+      function show(i){
+        index = i;
+        slides.style.transform = `translateX(${-i * 100}%)`;
+        dots.querySelectorAll('.dot').forEach((x,ii)=> x.classList.toggle('active', ii===i));
+      }
+      // autoplay
+      let timer = setInterval(()=> show((index+1)%total), 5200);
+      // pause on hover
+      const carousel = document.getElementById('carousel');
+      carousel.addEventListener('mouseenter', ()=> clearInterval(timer));
+      carousel.addEventListener('mouseleave', ()=> timer = setInterval(()=> show((index+1)%total), 5200));
+    })();
+
+    // ====== Testimonials: simple keyboard scroll
+    (function(){
+      const track = document.getElementById('tTrack');
+      track.addEventListener('keydown', (e)=> {
+        if(e.key==='ArrowRight') track.scrollBy({left:260,behavior:'smooth'});
+        if(e.key==='ArrowLeft') track.scrollBy({left:-260,behavior:'smooth'});
+      });
+    })();
+
+    // ====== Contact form: improved UX + validation + fetch to contact.php
+    async function handleSubmit(e){
+      e.preventDefault();
+      const f = document.getElementById('quoteForm');
+      const data = new FormData(f);
+      // basic client validation (phone rough)
+      const phone = (data.get('phone')||'').trim();
+      if(!/^\+?\d{8,15}$/.test(phone.replace(/[\s\-()]/g,''))){
+        alert('Por favor informe um telefone/WhatsApp válido (números).');
+        return false;
+      }
+      // show summary
+      const summary = `Solicitação de: ${data.get('name')}\nServiço: ${data.get('service')}\nHorário: ${data.get('when') || 'flexível'}\nDescrição: ${ (data.get('details')||'').slice(0,140) }...`;
+      if(!confirm('Confirme o envio:\n\n' + summary)) return false;
+
+      // try send to contact.php (if present on server). Fallback: show message and suggest WhatsApp
+      try{
+        const res = await fetch('contact.php', {method:'POST', body: data});
+        if(res.ok){
+          const txt = await res.text();
+          alert('Enviado com sucesso: ' + txt);
+          f.reset();
+          document.getElementById('summaryText').textContent = 'Solicitação enviada. Responderemos em até 24h.';
+          return false;
+        } else {
+          throw new Error('Resposta inválida do servidor');
+        }
+      }catch(err){
+        alert('Não foi possível enviar pelo formulário. Use o WhatsApp para envio imediato: +55 61 9298-3613');
+        return false;
+      }
+    }
+
+    // ====== Theme toggle (simple)
+    (function(){
+      const btn = document.getElementById('themeBtn');
+      btn.addEventListener('click', ()=>{
+        document.documentElement.classList.toggle('light');
+        // For this design, invert variables by adding/removing a class (kept simple)
+        if(document.documentElement.classList.contains('light')){
+          document.documentElement.style.setProperty('--bg','#f8fafc');
+          document.documentElement.style.setProperty('--surface','#ffffff');
+          document.documentElement.style.setProperty('--card','#f7fbff');
+          document.documentElement.style.setProperty('--text','#082032');
+          document.documentElement.style.setProperty('--muted','rgba(2,6,23,0.5)');
+        } else {
+          // revert
+          document.documentElement.style.removeProperty('--bg');
+          document.documentElement.style.removeProperty('--surface');
+          document.documentElement.style.removeProperty('--card');
+          document.documentElement.style.removeProperty('--text');
+          document.documentElement.style.removeProperty('--muted');
+        }
+      });
+    })();
+
+    // ====== Subtle parallax effect for hero background
+    (function(){
+      const hero = document.querySelector('.hero');
+      if(!hero) return;
+      window.addEventListener('scroll', ()=>{
+        const y = window.scrollY;
+        const bg = document.querySelector('.hero .hero-bg');
+        if(bg) bg.style.transform = `translateY(${y * 0.06}px) scale(${1 + Math.min(y/8000, 0.02)})`;
+      });
+    })();
+
+    // ====== Snow flurry (light) ======
+    (function(){
+      const holder = document.getElementById('snowHolder');
+      const COUNT = 24;
+      const w = window.innerWidth, h = window.innerHeight;
+      function create(i){
+        const el = document.createElement('div');
+        el.className = 'flake';
+        el.style.left = Math.random() * 100 + 'vw';
+        const size = 8 + Math.random()*14;
+        el.style.fontSize = size + 'px';
+        el.style.opacity = (0.2 + Math.random()*0.8).toString();
+        el.style.transform = `translateY(-10vh) rotate(${Math.random()*360}deg)`;
+        el.innerText = '❄';
+        // animation
+        const dur = 6 + Math.random()*8;
+        el.animate([
+          { transform: `translateY(-10vh) translateX(0) rotate(0deg)`, opacity: el.style.opacity },
+          { transform: `translateY(110vh) translateX(${(Math.random()-0.5)*30}vw) rotate(360deg)`, opacity: 0.05 }
+        ], {duration: dur*1000, iterations: Infinity, delay: Math.random()*4000});
+        holder.appendChild(el);
+      }
+      for(let i=0;i<COUNT;i++) create(i);
+    })();
+
+    // ====== Accessibility helpers ======
+    (function(){
+      // show focus ring for keyboard users
+      window.addEventListener('keydown', (e)=> {
+        if(e.key === 'Tab') document.body.classList.add('user-is-tabbing');
+      });
+      window.addEventListener('mousedown', ()=> document.body.classList.remove('user-is-tabbing'));
+    })();
+
+    // ====== Developer note: local files paths seen earlier in conversation (kept commented) ======
+    /*
+      // Local file paths referenced earlier (not used in this build):
+      const localVideo1 = "/mnt/data/WhatsApp Video 2025-11-22 at 15.48.11.mp4";
+      const localVideo2 = "/mnt/data/WhatsApp Video 2025-11-22 at 15.48.10.mp4";
+      const localVideo3 = "/mnt/data/WhatsApp Video 2025-11-22 at 15.48.10 (1).mp4";
+      // These are intentionally not loaded to respect your request (no user videos/images).
+    */
+
+  </script>
+</body>
+</html>
