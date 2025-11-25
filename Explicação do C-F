@@ -1,0 +1,719 @@
+1) Inicio do código em documento
+
+<!doctype html>
+
+Declara que o arquivo é um HTML5, desta forma é informado ao navegador para interpretar o documento no modo padrão (standards mode) em vez do modo quirks. Deve ser a primeira linha.
+
+<html lang="pt-BR">
+
+Abre o elemento raiz do documento HTML.
+
+lang="pt-BR" indica que o idioma do conteúdo é português do Brasil — importante para acessibilidade, mecanismos de busca e seleção de voz/voz síntese.
+
+2) Cabeçalho (<head>) — metadados e estilos
+
+<head> — inicia a seção de metadados.
+
+<meta charset="utf-8" />
+
+Define a codificação de caracteres usada no documento como UTF-8. Fazendo com que caracteres acentuados (ç, ã, ó, etc.) sejam interpretados corretamente.
+
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+Faz com que o layout seja responsivo em dispositivos móveis. width=device-width faz a largura da viewport igual à largura do dispositivo; initial-scale=1 define o nível de zoom inicial.
+
+<title>Ronaldo Refrigeração — Instalação, Manutenção e Higienização</title>
+
+Texto que aparece na aba do navegador e é usado por mecanismos de busca como título da página.
+
+<meta name="description" content="Ronaldo Refrigeração — Instalação, manutenção, higienização e reparos de ar-condicionado. Orçamento rápido via WhatsApp." />
+
+Metatag de descrição para SEO; usada por motores de busca e quando a página é compartilhada.
+
+<meta name="keywords" content="ar-condicionado, instalação, manutenção, higienização, recarga de gás, Ronaldo Refrigeração" />
+
+Antiga prática de SEO; hoje pouco influente, mas ainda válida como metadado.
+
+<meta name="robots" content="index, follow" />
+
+Instrui robôs de busca a indexarem a página e seguirem links.
+
+3) Bloco de estilos (CSS) — <!-- ====== STYLES (Ultra Premium Neon) ====== --> e <style>...</style>
+
+Explicação: variáveis (:root), reset e regras gerais, cada componente (header, hero, carousel, serviços, depoimentos, contato, footer, snow, responsividade).
+
+3.1 Variáveis CSS (tema) — :root{ ... }
+
+Essas definem custom properties (variáveis) que tornam manutenção e tema muito mais fáceis.
+
+--bg-1: #020617; — cor de fundo primária (escura).
+
+--bg-2: #06102a; — segunda cor de fundo (gradiente).
+
+--card: rgba(255,255,255,0.03); — cor de fundo para cards (transparente).
+
+--muted: rgba(255,255,255,0.65); — cor para textos atenuados / secundários.
+
+--text: #eaf6ff; — cor principal do texto.
+
+--neon-1: #7cf2ff; — cor neon 1 (ciano).
+
+--neon-2: #b66dff; — cor neon 2 (roxo).
+
+OBS: Cores pesquisadas no google como "Código # das cores"
+
+--accent: linear-gradient(90deg,var(--neon-1),var(--neon-2)); — gradiente usado como destaque (botões, logo).
+
+--glass: rgba(255,255,255,0.03); — efeito glass (transparência leve).
+
+--radius: 14px; — borda arredondada padrão.
+
+--shadow-neon: 0 6px 30px rgba(182,109,255,0.12), 0 2px 8px rgba(124,242,255,0.06); — sombra de caixa com tom neon.
+
+--max-w: 1200px; — largura máxima do container central.
+
+--wa-number: "+5561994166404"; — variável contendo o número do WhatsApp (apenas para referência no CSS; não cria link automaticamente).
+
+--insta-url: "https://www.instagram.com/***********?igsh=ZWRuZ3gxd3NhcTM4"; — URL do Instagram (guardada como variável mas usada no HTML diretamente).
+
+Observação: variáveis deixam fácil trocar tema (ex.: tema claro/escuro modificando --bg-1, etc).
+
+3.2 Reset e regras globais
+
+*{box-sizing:border-box}
+
+Define que o box-sizing de todos elementos seja border-box (o padding/ border ficam dentro da largura/altura declarada), evitando cálculos confusos.
+
+html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:var(--text);font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+
+Torna a altura 100% (útil para backgrounds).
+
+Remove margin padrão do body.
+
+Define background em gradiente vertical usando --bg-1 e --bg-2.
+
+Define cor do texto base var(--text).
+
+Escolhe uma stack de fontes (Inter, sistema, etc).
+
+-webkit-font-smoothing:antialiased suaviza fontes em navegadores WebKit.
+
+a{color:inherit;text-decoration:none}
+
+Links herdam a cor do texto e não têm sublinhado padrão.
+
+.wrap{max-width:var(--max-w);margin:0 auto;padding:28px}
+
+Container central com largura máxima e espaçamento padding. margin: 0 auto centraliza horizontalmente.
+
+3.3 Header (cabeçalho)
+
+header { display:flex;justify-content:space-between;align-items:center;gap:16px; padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.03); position:sticky;top:0;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); backdrop-filter: blur(6px); z-index:60; }
+
+display:flex organiza logo e nav em linha.
+
+justify-content:space-between separa brand e nav.
+
+gap:16px adiciona espaço entre itens.
+
+padding:14px 0 pad interno.
+
+border-bottom cria uma linha sutil.
+
+position:sticky; top:0 faz o header “grudar” no topo ao rolar.
+
+background e backdrop-filter: blur(6px) criam efeito translúcido/vidro.
+
+z-index:60 garante sobreposição quando necessário.
+
+.brand{display:flex;align-items:center;gap:12px} — agrupa logo/texto.
+
+.logo { width:48px;height:48px;border-radius:12px; background:var(--accent); display:flex;align-items:center;justify-content:center; font-weight:800;color:#021026;box-shadow:var(--shadow-neon); }
+
+Estilo do contêiner do logotipo: quadrado arredondado com gradiente --accent e sombra neon.
+
+.brand h1{margin:0;font-size:1.05rem;letter-spacing:-0.02em} — título da marca sem margin.
+
+nav{display:flex;align-items:center;gap:14px} — define o menu como flex.
+
+3.4 HERO (seção principal)
+
+.hero{display:flex;gap:24px;align-items:center;padding:40px 0;position:relative;overflow:visible;}
+
+Container do hero: lado esquerdo conteúdo textual e lado direito visual/carrossel.
+
+.hero-left{flex:1} — ocupa espaço disponível.
+
+.eyebrow{font-size:13px;color:var(--muted);margin-bottom:8px} — texto pequeno acima do título.
+
+.hero-title{font-size:2.6rem;margin:0 0 12px 0;line-height:1.02;text-shadow: 0 2px 20px rgba(118,203,255,0.06); font-weight:800;}
+
+Título grande com sombra sutil.
+
+.hero-sub{color:var(--muted);max-width:62ch;margin-bottom:18px} — subtítulo com largura controlada (ch = largura do caractere 0).
+
+.cta-row{display:flex;gap:12px;flex-wrap:wrap} — linha de chamadas à ação (botões) com quebra se necessário.
+
+.btn{ padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.06); font-weight:700;cursor:pointer;backdrop-filter:blur(4px); box-shadow: 0 6px 20px rgba(2,6,23,0.5); }
+
+Estilo base para botões: padding, borda, raio, sombra, cursor pointer.
+
+.btn-primary{ background:var(--accent); color:#031223; box-shadow: 0 8px 36px rgba(124,242,255,0.12), 0 4px 20px rgba(182,109,255,0.08); }
+
+Botão primário com gradiente e sombra forte.
+
+.btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.06)} — botão transparente com borda.
+
+3.5 Hero-right / Carrossel (visual)
+
+.hero-right{width:520px;min-width:320px;max-width:46%;align-self:stretch} — contêiner direito com largura fixada/responsiva.
+
+.carousel{height:340px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.03);box-shadow:var(--shadow-neon);overflow:hidden;position:relative}
+
+Caixa do carrossel com overflow oculto (esconde slides fora da área) e aparência glass/neon.
+
+.slides{display:flex;height:100%;transition:transform .7s cubic-bezier(.22,.9,.25,1)}
+
+slides é a faixa que desliza; display:flex alinha slides horizontalmente; transition suaviza a transformação de translateX.
+
+.slide{min-width:100%;display:flex;gap:18px;align-items:center;padding:22px}
+
+Cada slide ocupa 100% da área do carrossel (portanto fiz com que fosse possível, mostrar um por vez).
+
+.visual-box{width:160px;height:160px;border-radius:14px;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.02);box-shadow:0 10px 40px rgba(124,242,255,0.04)}
+
+Caixa que contém o SVG visual do slide.
+
+.slide h4{margin:0;font-size:1.05rem} e .slide p{margin:6px 0 0 0;color:var(--muted)} — título e parágrafo do slide.
+
+.dots{position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:center;gap:10px} — container dos indicadores de navegação (bolinhas).
+
+.dot{width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.03);cursor:pointer} — estilo base das bolinhas.
+
+.dot.active{background:var(--neon-1);box-shadow:0 6px 20px rgba(124,242,255,0.12), 0 0 18px rgba(182,109,255,0.06)} — bolinha ativa em neon.
+
+3.6 Sections: services, testimonials, contact
+
+section.services{padding:36px 0} — espaçamento vertical para a seção serviços.
+
+.grid {display:grid;grid-template-columns:repeat(3,1fr);gap:18px} — grade 3 colunas para cards de serviço.
+
+.card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);transition:all .25s} — estilo base do card.
+
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-neon)} — hover eleva o card e coloca sombra.
+
+.card h3{margin:0 0 6px 0}, .card p{margin:0;color:var(--muted)} — título e descrição dos cards.
+
+section.testimonials{padding:36px 0} — estilo de padding.
+
+.t-track{display:flex;gap:12px;overflow:auto;padding-bottom:8px} — faixa horizontal rolável de depoimentos.
+
+.t-card{min-width:260px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.02)} — cartão de depoimento.
+
+.contact{padding:36px 0} — padding da seção de contato.
+
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start} — grid com formulário (1fr) e resumo lateral (360px).
+
+.form-field{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:var(--text)} — inputs/textarea estilo uniforme.
+
+select.form-field option{color:#111;background:#fff} — força cor/ fundo das opções (útil pois opções herdam estilos).
+
+.summary{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;color:var(--muted);font-size:14px} — bloco resumo lateral.
+
+3.7 Footer
+
+footer.footer{ margin-top:40px;padding:18px;border-radius:12px;background:linear-gradient(90deg, rgba(0,0,0,0.45), rgba(8,4,20,0.55)); border-top:4px solid rgba(124,242,255,0.12);display:flex;align-items:center;justify-content:space-between;gap:12px; box-shadow: 0 10px 40px rgba(2,6,23,0.6); }
+
+Aparência forte, contraste e separação do conteúdo.
+
+.footer .left{color:var(--muted);font-size:14px} — texto do lado esquerdo.
+
+.footer .right{display:flex;gap:12px;align-items:center} — ícones alinhados à direita.
+
+.icon-btn{width:44px;height:44px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.04)} — estilo dos botões-ícone (insta/whatsapp).
+
+3.8 WhatsApp Floating FAB
+
+.wa-fab{ position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:14px;background:linear-gradient(90deg,#00c853,#00e676);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(0,200,83,0.12);z-index:100; }
+
+Botão flutuante fixo no canto inferior direito com gradiente verde (WhatsApp-like).
+
+.wa-fab svg{width:30px;height:30px;filter:drop-shadow(0 6px 20px rgba(0,200,83,0.12))} — estilo do ícone dentro do FAB.
+
+3.9 Snow holder / flocos de Neve
+
+.snow-holder{pointer-events:none;position:fixed;inset:0;z-index:40;overflow:hidden}
+
+Container de flocos posicionado sobre a tela inteira; pointer-events:none para não interferir com cliques.
+
+.flake{position:absolute;top:-5%;color:rgba(255,255,255,0.92);font-size:12px;opacity:0.9;filter:drop-shadow(0 6px 20px rgba(0,0,0,0.6))}
+
+Estilo base de cada floco (o posicionamento é definido em JS).
+
+3.10 Responsividade
+
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}.hero-right{display:none}.contact-grid{grid-template-columns:1fr}}
+
+Abaixo de 1100px: grade vira 2 colunas; hero-right (visual/carrossel) é ocultado; contact-grid vira coluna única.
+
+@media (max-width:700px){.grid{grid-template-columns:1fr}.hero-title{font-size:1.6rem}}
+
+Abaixo de 700px: grade vira 1 coluna; título reduz fonte.
+
+4) Corpo do documento (<body>)
+
+<body> abre o corpo do documento.
+
+<div class="wrap"> — container central (aplicando a max-width).
+
+4.1 Header (HTML)
+<header aria-label="Cabeçalho">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">RR</div>
+    <div>
+      <h1>Ronaldo Refrigeração</h1>
+      <div style="font-size:13px;color:var(--muted)">Climatização · Refrigeração · Tecnologia</div>
+    </div>
+  </div>
+
+  <nav role="navigation" aria-label="Menu">
+    <a href="#servicos" style="color:var(--muted);margin-right:8px">Serviços</a>
+    <a href="#depoimentos" style="color:var(--muted);margin-right:8px">Depoimentos</a>
+    <a href="#contato" style="color:var(--muted);margin-right:12px">Contato</a>
+    <button class="btn btn-ghost" style="padding:8px;border-radius:10px" onclick="toggleTheme()">Tema</button>
+  </nav>
+</header>
+
+
+Explicações linha a linha:
+
+header aria-label="Cabeçalho": elemento semântico do cabeçalho; aria-label melhora acessibilidade.
+
+.brand agrupa logo e texto.
+
+.logo contém o texto "RR" (marca). aria-hidden="true" indica que leitores de tela ignoram, pois existe <h1> com o nome.
+
+<h1> principal da página (importante para SEO).
+
+<nav role="navigation" aria-label="Menu"> define navegação; contém três <a> que apontam para âncoras internas (#servicos, #depoimentos, #contato) para rolagem interna.
+
+O <button> chama toggleTheme() (função JS) quando clicado — alterna tema claro/escuro.
+
+4.2 Hero (HTML)
+
+O hero tem duas colunas: .hero-left (texto e CTAs) e .hero-right (carrossel).
+
+.hero-left:
+
+div.eyebrow, h2.hero-title, p.hero-sub — textos descritivos.
+
+Botões: Solicitar Orçamento (scroll para #contato), Ligue Agora (link tel:), Abrir WhatsApp (link para wa.me).
+
+onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})": ao clicar, a página rola suavemente até a seção de contato.
+
+href="tel:+556192983613": abre discador em dispositivos que suportam.
+
+href="https://wa.me/+556192983613": abre WhatsApp (padrão wa.me aceita número internacional sem sinais).
+
+.hero-right:
+
+Contém o .carousel com id="carousel".
+
+Dentro: div.slides com três div.slide — cada um tem .visual-box (SVG que descreve visualmente sujo/limpo/tecnologia) e texto (h4 + p).
+
+div.dots com id="dots": local onde as bolinhas são inseridas via JS.
+
+Observação sobre SVGs:
+
+São gráficos vetoriais que foram embutidos representando um ar-condicionado sujo, limpo e um ícone de tecnologia. Não é preciso imagem externa — vantagem para velocidade e disponibilidade offline.
+
+4.3 Serviços (#servicos)
+
+Título h3 e div.grid com três div.card — cada card tem h3 e p.
+
+role="list" e role="listitem" para acessibilidade.
+
+4.4 Depoimentos (#depoimentos)
+
+h3 e div.t-track (id="tTrack") com vários div.t-card.
+
+tabindex="0" e aria-live="polite" em t-track:
+
+tabindex="0" permite foco via teclado.
+
+aria-live="polite" indica que atualizações dentro podem ser anunciadas de forma não intrusiva por leitores de tela.
+
+4.5 Contato/Orçamento (#contato)
+
+HTML principal:
+
+<section id="contato" class="contact">
+  <h3>Solicite Seu Orçamento</h3>
+  <div class="contact-grid">
+    <form id="quoteForm" onsubmit="return handleSubmit(event)" autocomplete="off" aria-label="Formulário de orçamento">
+      <!-- campos: name, phone, selects, textarea -->
+      <button class="btn btn-primary" type="submit">Enviar Solicitação de trabalho</button>
+      <button class="btn btn-ghost" type="reset">Limpar</button>
+      <a class="btn" href="https://wa.me/+556192983613" target="_blank" rel="noopener">Abrir WhatsApp</a>
+    </form>
+
+    <aside class="summary">
+      <strong>Resumo rápido</strong>
+      <div id="summaryText">Preencha e envie — responderemos em até 24h. Para diagnóstico mais preciso, envie fotos via WhatsApp.</div>
+      <div><div class="small">Atendimento:Seg a Dom 08:00–19:00</div></div>
+    </aside>
+  </div>
+</section>
+
+
+Explicações:
+
+form#quoteForm — formulário com onsubmit="return handleSubmit(event)" chama função JS handleSubmit (previne envio padrão e faz validações/POST manual).
+
+autocomplete="off" essa funçaõ impede o preenchimento automático pelo navegador (pode ser alterado se não desejar).
+
+Campos: input[name="name"], input[name="phone"], select[name="service"], input[name="when"], textarea[name="details"].
+
+Botões: type="submit" envia (via JS), type="reset" limpa formulário, link WhatsApp abre chat.
+
+aside.summary contém instruções rápidas e id="summaryText" que é atualizado por JS quando o formulário é enviado.
+
+4.6 Footer (rodapé)
+
+Texto de direitos autorais e crédito ao desenvolvedor (Matheus).
+
+Uso de Ícones de Instagram e WhatsApp como SVGs dentro de a.icon-btn com href para contas/contato. (Cliente quis o uso para que fosse mais fácil entrar em contato diretamente)
+
+rel="noopener" em links externos por segurança (impede que a nova página acesse window.opener).
+
+4.7 Snow container
+
+<div class="snow-holder" id="snowHolder" aria-hidden="true"></div>
+
+Placeholder vazio onde o script adiciona elementos div com classe .flake. aria-hidden="true" indica que conteúdo decorativo não deve ser lido por leitores de tela.
+
+5) Uso do Scripts JavaScript (<script> ... </script>)
+
+Vou explicar cada script/função por bloco, linha a linha onde necessário.
+
+5.1 toggleTheme() — alterna tema claro/escuro
+function toggleTheme(){
+  const isLight = document.documentElement.classList.toggle('light-mode');
+  if(isLight){
+    document.documentElement.style.setProperty('--bg-1','#f8fafc');
+    document.documentElement.style.setProperty('--bg-2','#eaf6ff');
+    document.documentElement.style.setProperty('--text','#071022');
+    document.documentElement.style.setProperty('--muted','rgba(2,6,23,0.6)');
+    document.documentElement.style.setProperty('--card','rgba(2,6,23,0.02)');
+  } else {
+    document.documentElement.style.removeProperty('--bg-1');
+    document.documentElement.style.removeProperty('--bg-2');
+    document.documentElement.style.removeProperty('--text');
+    document.documentElement.style.removeProperty('--muted');
+    document.documentElement.style.removeProperty('--card');
+  }
+}
+
+
+Explicações:
+
+function toggleTheme(){ ... } declara a função global.
+
+document.documentElement.classList.toggle('light-mode') adiciona/remova a classe light-mode no <html>; toggle retorna true se a classe foi adicionada.
+
+if(isLight){ ... } — Quando adiciona light-mode, o código usa style.setProperty, fazendo assim sobrescrever variáveis CSS no escopo do documento:
+
+--bg-1, --bg-2 trocam para cores claras.
+
+--text e --muted ajustam cores do texto.
+
+--card ajusta aparência dos cartões.
+
+else { ... } — remove as propriedades customizadas, fazendo com que as variáveis definidas no :root voltem a valer (tema escuro original).
+
+Observação: não há persistência (localStorage) — ao recarregar página o tema volta ao padrão. Poderia-se melhorar salvando a escolha.
+
+5.2 Carousel IIFE — cria dots, autoplay e navegação por teclado
+
+Bloco completo:
+
+(function(){
+  const slidesEl = document.getElementById('slides');
+  const dotsEl = document.getElementById('dots');
+  const total = slidesEl.children.length;
+  let idx = 0;
+
+  for(let i=0;i<total;i++){
+    const d = document.createElement('button');
+    d.className = 'dot' + (i===0 ? ' active' : '');
+    d.type = 'button';
+    d.setAttribute('aria-label','Ir para slide ' + (i+1));
+    d.addEventListener('click', ()=> show(i));
+    dotsEl.appendChild(d);
+  }
+
+  function show(i){
+    idx = i;
+    slidesEl.style.transform = `translateX(${-i * 100}%)`;
+    dotsEl.querySelectorAll('.dot').forEach((b,bi)=> b.classList.toggle('active', bi===i));
+  }
+
+  let timer = setInterval(()=> show((idx+1)%total), 5200);
+
+  const carousel = document.getElementById('carousel');
+  carousel.addEventListener('mouseenter', ()=> clearInterval(timer));
+  carousel.addEventListener('mouseleave', ()=> timer = setInterval(()=> show((idx+1)%total), 5200));
+  carousel.addEventListener('keydown', (e)=> {
+    if(e.key === 'ArrowRight') show((idx+1)%total);
+    if(e.key === 'ArrowLeft') show((idx-1+total)%total);
+  });
+  carousel.tabIndex = 0;
+})();
+
+
+Explicação:
+
+(function(){ ... })(); — Immediately Invoked Function Expression (IIFE). Executa imediatamente para encapsular variáveis e evitar poluição do escopo global.
+
+slidesEl é o elemento #slides (o contêiner flex dos slides).
+
+dotsEl é #dots — onde serão criados os botões indicadores.
+
+total = slidesEl.children.length — número de slides.
+
+let idx = 0 — índice do slide atualmente exibido.
+
+for (let i=0; i<total; i++) { ... } — cria dinamicamente um button por slide:
+
+const d = document.createElement('button'); cria nó <button>.
+
+d.className = 'dot' + (i===0 ? ' active' : ''); adiciona a classe active ao primeiro.
+
+d.type = 'button'; evita que o <button> dentro de um formulário submeta algo por padrão.
+
+d.setAttribute('aria-label','Ir para slide ' + (i+1)); acessibilidade (anuncio do propósito do botão).
+
+d.addEventListener('click', ()=> show(i)); — ao clicar chama show(i).
+
+dotsEl.appendChild(d); — insere no DOM.
+
+function show(i){ ... } — função que mostra o slide i:
+
+idx = i; atualiza índice.
+
+slidesEl.style.transform = \translateX(${-i * 100}%)`;— move a faixa de slides para esquerda o suficiente para revelar o slidei. -i * 100%porque cada slide temmin-width:100%`.
+
+dotsEl.querySelectorAll('.dot').forEach((b,bi)=> b.classList.toggle('active', bi===i)); — atualiza classes das bolinhas.
+
+let timer = setInterval(()=> show((idx+1)%total), 5200); — autoplay: a cada 5200ms passa para próximo slide (usando resto % total para loop).
+
+const carousel = document.getElementById('carousel'); referência ao contêiner.
+
+carousel.addEventListener('mouseenter', ()=> clearInterval(timer)); — ao passar mouse pausa autoplay.
+
+carousel.addEventListener('mouseleave', ()=> timer = setInterval(()=> show((idx+1)%total), 5200)); — ao tirar mouse, reinicia autoplay (criando um novo timer).
+
+carousel.addEventListener('keydown', (e)=> { ... }); — suporte a teclado:
+
+ArrowRight mostra próximo slide.
+
+ArrowLeft mostra slide anterior.
+
+carousel.tabIndex = 0; — torna o contêiner focável via teclado para que eventos keydown funcionem quando em foco.
+
+Obs: não há proteção contra múltiplos timers criados se mouseleave for chamado repetidamente sem limpar o anterior (o código vai reiniciar o timer mas só limpa quando mouseenter chama clearInterval). Implementação atual é aceitável pois mouseenter sempre limpa o cartão atual antes de mouseleave criar outro.
+
+5.3 Testimonials keyboard scrolling (pequeno IIFE)
+(function(){
+  const track = document.getElementById('tTrack');
+  if(!track) return;
+  track.addEventListener('keydown', (e)=> {
+    if(e.key === 'ArrowRight') track.scrollBy({left:260,behavior:'smooth'});
+    if(e.key === 'ArrowLeft') track.scrollBy({left:-260,behavior:'smooth'});
+  });
+  track.tabIndex = 0;
+})();
+
+
+Explicações:
+
+Envolve a lógica em IIFE.
+
+track referencia #tTrack.
+
+if(!track) return; — segurança caso o elemento não exista.
+
+track.addEventListener('keydown', ...) — quando a faixa está em foco, as teclas setas deslocam horizontalmente os depoimentos:
+
+scrollBy({left:260,behavior:'smooth'}) rola 260px à direita suavemente.
+
+left:-260 rola para a esquerda.
+
+track.tabIndex = 0 — torna a faixa focável.
+
+5.4 handleSubmit(e) — Validação e tentativa de envio
+
+Bloco:
+
+async function handleSubmit(e){
+  e.preventDefault();
+  const f = document.getElementById('quoteForm');
+  const data = new FormData(f);
+
+  const phoneRaw = (data.get('phone')||'').toString().replace(/\D/g,'');
+  if(phoneRaw.length < 8 || phoneRaw.length > 15){
+    alert('Por favor informe um telefone/WhatsApp válido (apenas números). Ex: +556199999999');
+    return false;
+  }
+
+  const summary = `Nome: ${data.get('name')}\nServiço: ${data.get('service')}\nHorário: ${data.get('when') || 'flexível'}\nDescrição: ${(data.get('details')||'').slice(0,120)}`;
+  if(!confirm('Confirme o envio:\n\n' + summary)) return false;
+
+  try{
+    const res = await fetch('contact.php', { method: 'POST', body: data });
+    if(res.ok){
+      const txt = await res.text();
+      alert('Solicitação enviada: ' + (txt || 'OK'));
+      f.reset();
+      document.getElementById('summaryText').textContent = 'Solicitação enviada. Responderemos em até 24h.';
+      return false;
+    } else throw new Error('Erro servidor: ' + res.status);
+  } catch(err){
+    alert('Não foi possível enviar pelo formulário (servidor indisponível). Use o WhatsApp para envio imediato.');
+    window.open('https://wa.me/5561994166404', '_blank');
+    return false;
+  }
+}
+
+
+Linha a linha:
+
+async function handleSubmit(e){ — declara função assíncrona para possibilitar await.
+
+e.preventDefault(); — evita envio tradicional do formulário (recarregar a página).
+
+const f = document.getElementById('quoteForm'); — referência ao formulário.
+
+const data = new FormData(f); — cria objeto FormData com valores do formulário (para envio via fetch).
+
+const phoneRaw = (data.get('phone')||'').toString().replace(/\D/g,''); — pega o valor do campo phone, converte para string e remove tudo exceto dígitos (regex \D = não dígito).
+
+if(phoneRaw.length < 8 || phoneRaw.length > 15){ alert(...); return false; } — valida comprimento do telefone; exibe alert se inválido e interrompe.
+
+8 a 15 dígitos cobre telefones locais e internacionais.
+
+const summary = \Nome: ...`;` — constrói um resumo com nome, serviço, horário e descrição (cortando descrição para 120 caracteres).
+
+if(!confirm('Confirme o envio:\n\n' + summary)) return false; — pede confirmação do usuário; se Cancel, interrompe.
+
+try{ const res = await fetch('contact.php', { method: 'POST', body: data }); — tenta enviar POST para contact.php (assume backend PHP).
+
+if(res.ok){ const txt = await res.text(); alert('Solicitação enviada: ' + (txt || 'OK')); f.reset(); document.getElementById('summaryText').textContent = 'Solicitação enviada. Responderemos em até 24h.'; return false; } else throw new Error('Erro servidor: ' + res.status);
+
+Se a resposta HTTP for ok (200–299), lê corpo, mostra alert com resposta (ou 'OK'), reseta formulário, atualiza o texto do resumo e retorna false (para prevenir comportamento adicional).
+
+
+} catch(err){ alert('Não foi possível enviar pelo formulário (servidor indisponível). Use o WhatsApp para envio imediato.'); window.open('https://wa.me/"Número"', '_blank'); return false; }
+
+Em caso de erro (fetch falhou, CORS, servidor ausente), informa o usuário e abre WhatsApp como fallback.
+
+Observações:
+
+contact.php precisa existir e aceitar FormData como $_POST e $_FILES no servidor; caso contrário cai no fallback.
+
+O uso de alert/confirm é válido, mas pode ser melhorado com modais amigáveis.
+
+return false é redundante depois de e.preventDefault(), mas é usado para garantir que nada mais aconteça.
+
+5.5 Snow flurry (animação de flocos) — IIFE com Web Animations API
+(function(){
+  const holder = document.getElementById('snowHolder');
+  if(!holder) return;
+  const COUNT = 26;
+  for(let i=0;i<COUNT;i++){
+    const el = document.createElement('div');
+    el.className = 'flake';
+    el.innerText = '❄';
+    el.style.left = Math.random() * 100 + 'vw';
+    const size = 8 + Math.random() * 18;
+    el.style.fontSize = size + 'px';
+    el.style.opacity = (0.2 + Math.random() * 0.8).toString();
+    holder.appendChild(el);
+    const dur = 6000 + Math.random() * 9000;
+    const drift = (Math.random()-0.5) * 30;
+    el.animate([
+      { transform: `translateY(-10vh) translateX(0) rotate(0deg)`, opacity: el.style.opacity },
+      { transform: `translateY(110vh) translateX(${drift}vw) rotate(360deg)`, opacity: 0.05 }
+    ], { duration: dur, iterations: Infinity, delay: Math.random()*4000 });
+  }
+})();
+
+
+Explicações:
+
+holder é referência ao contêiner #snowHolder.
+
+COUNT = 26 define quantos flocos serão gerados.
+
+Loop for cria div para cada floco:
+
+el.className = 'flake'; aplica estilo CSS definido.
+
+el.innerText = '❄'; usa caractere Unicode de floco, efeito que combina com o tema da página (poderia ser emoji).
+
+el.style.left = Math.random() * 100 + 'vw'; posiciona aleatoriamente horizontalmente (em vw para relativo à viewport).
+
+const size = 8 + Math.random() * 18; el.style.fontSize = size + 'px'; — define tamanho aleatório.
+
+el.style.opacity = (0.2 + Math.random() * 0.8).toString(); — opacidade aleatória.
+
+holder.appendChild(el); — adiciona ao DOM.
+
+const dur = 6000 + Math.random() * 9000; — duração da animação entre 6s e 15s.
+
+const drift = (Math.random()-0.5) * 30; — deslocamento horizontal entre -15vw e +15vw.
+
+el.animate([...], { duration: dur, iterations: Infinity, delay: Math.random()*4000 }); — usa Web Animations API:
+
+Primeiro frame: translateY(-10vh) (fora de topo), translateX(0), rotate(0deg), opacidade inicial.
+
+Último frame: translateY(110vh) (fora do fundo), translateX(drift vw), rotate(360deg), opacidade final baixa.
+
+iterations: Infinity faz loop infinito.
+
+delay aleatório inicia em momentos distintos.
+
+Resultado: flocos sem interação que caem com deriva e rotação.
+
+5.6 Accordion (abrir/fechar) para .card e .t-card
+document.querySelectorAll('.card, .t-card').forEach(el => {
+  el.addEventListener('click', ()=> el.classList.toggle('open'));
+});
+
+
+Explicações:
+
+Seleciona todos elementos com classes .card e .t-card.
+
+Para cada um, adiciona um listener click que alterna a classe open.
+
+5.7 Acessibilidade: foco por tabulação
+(function(){
+  window.addEventListener('keydown', (e)=> { if(e.key === 'Tab') document.body.classList.add('user-is-tabbing'); });
+  window.addEventListener('mousedown', ()=> document.body.classList.remove('user-is-tabbing'));
+})();
+
+
+Explicações:
+
+IIFE que adiciona/removes uma classe ao <body> dependendo de como o usuário está interagindo:
+
+Se o usuário pressiona a tecla Tab (provavelmente usando teclado), adiciona classe user-is-tabbing. Isso permite, via CSS, mostrar outline/foco somente para navegação por teclado, evitando outlines intrusivos para usuários de mouse.
+
+mousedown remove user-is-tabbing quando o mouse é usado.
+
+Observação: user-is-tabbing deveria ser usada em CSS para controlar :focus estilos (por exemplo body.user-is-tabbing .btn:focus { outline: 3px solid ... }), mas nesse arquivo não há regras específicas para .user-is-tabbing. A infraestrutura está pronta para ser estendida.
+
+6) Fechamentos finais
+
+</script>, </body>, </html> — fecham o script, corpo e documento, concluíndo assim o site.
